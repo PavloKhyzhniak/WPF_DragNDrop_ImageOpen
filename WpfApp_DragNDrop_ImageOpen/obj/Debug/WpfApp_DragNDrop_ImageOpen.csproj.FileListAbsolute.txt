@@ -1,0 +1,15 @@
+C:\Work_Step2019\08_VisualC#_WPF\AppWPF_C#_ch03_03\WpfApp_DragNDrop_ImageOpen\WpfApp_DragNDrop_ImageOpen\bin\Debug\WpfApp_DragNDrop_ImageOpen.exe.config
+C:\Work_Step2019\08_VisualC#_WPF\AppWPF_C#_ch03_03\WpfApp_DragNDrop_ImageOpen\WpfApp_DragNDrop_ImageOpen\bin\Debug\WpfApp_DragNDrop_ImageOpen.exe
+C:\Work_Step2019\08_VisualC#_WPF\AppWPF_C#_ch03_03\WpfApp_DragNDrop_ImageOpen\WpfApp_DragNDrop_ImageOpen\bin\Debug\WpfApp_DragNDrop_ImageOpen.pdb
+C:\Work_Step2019\08_VisualC#_WPF\AppWPF_C#_ch03_03\WpfApp_DragNDrop_ImageOpen\WpfApp_DragNDrop_ImageOpen\obj\Debug\MainWindow.g.cs
+C:\Work_Step2019\08_VisualC#_WPF\AppWPF_C#_ch03_03\WpfApp_DragNDrop_ImageOpen\WpfApp_DragNDrop_ImageOpen\obj\Debug\App.g.cs
+C:\Work_Step2019\08_VisualC#_WPF\AppWPF_C#_ch03_03\WpfApp_DragNDrop_ImageOpen\WpfApp_DragNDrop_ImageOpen\obj\Debug\WpfApp_DragNDrop_ImageOpen_MarkupCompile.cache
+C:\Work_Step2019\08_VisualC#_WPF\AppWPF_C#_ch03_03\WpfApp_DragNDrop_ImageOpen\WpfApp_DragNDrop_ImageOpen\obj\Debug\WpfApp_DragNDrop_ImageOpen_MarkupCompile.lref
+C:\Work_Step2019\08_VisualC#_WPF\AppWPF_C#_ch03_03\WpfApp_DragNDrop_ImageOpen\WpfApp_DragNDrop_ImageOpen\obj\Debug\MainWindow.baml
+C:\Work_Step2019\08_VisualC#_WPF\AppWPF_C#_ch03_03\WpfApp_DragNDrop_ImageOpen\WpfApp_DragNDrop_ImageOpen\obj\Debug\WpfApp_DragNDrop_ImageOpen.g.resources
+C:\Work_Step2019\08_VisualC#_WPF\AppWPF_C#_ch03_03\WpfApp_DragNDrop_ImageOpen\WpfApp_DragNDrop_ImageOpen\obj\Debug\WpfApp_DragNDrop_ImageOpen.Properties.Resources.resources
+C:\Work_Step2019\08_VisualC#_WPF\AppWPF_C#_ch03_03\WpfApp_DragNDrop_ImageOpen\WpfApp_DragNDrop_ImageOpen\obj\Debug\WpfApp_DragNDrop_ImageOpen.csproj.GenerateResource.cache
+C:\Work_Step2019\08_VisualC#_WPF\AppWPF_C#_ch03_03\WpfApp_DragNDrop_ImageOpen\WpfApp_DragNDrop_ImageOpen\obj\Debug\WpfApp_DragNDrop_ImageOpen.csproj.CoreCompileInputs.cache
+C:\Work_Step2019\08_VisualC#_WPF\AppWPF_C#_ch03_03\WpfApp_DragNDrop_ImageOpen\WpfApp_DragNDrop_ImageOpen\obj\Debug\WpfApp_DragNDrop_ImageOpen.exe
+C:\Work_Step2019\08_VisualC#_WPF\AppWPF_C#_ch03_03\WpfApp_DragNDrop_ImageOpen\WpfApp_DragNDrop_ImageOpen\obj\Debug\WpfApp_DragNDrop_ImageOpen.pdb
+C:\Work_Step2019\08_VisualC#_WPF\AppWPF_C#_ch03_03\WpfApp_DragNDrop_ImageOpen\WpfApp_DragNDrop_ImageOpen\obj\Debug\WpfApp_DragNDrop_ImageOpen.csprojAssemblyReference.cache

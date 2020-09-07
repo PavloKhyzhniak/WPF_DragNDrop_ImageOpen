@@ -1,0 +1,23 @@
+﻿<Window x:Class="WpfApp_DragNDrop_ImageOpen.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp_DragNDrop_ImageOpen"
+        mc:Ignorable="d"
+        x:Name="mainWindow" Title="DragNDrop_ImageOpen" Height="450" Width="800"
+        AllowDrop="True" PreviewDragEnter="mainWindow_PreviewDragEnter" PreviewDrop="mainWindow_PreviewDrop">
+    <Grid  >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="369" />
+        </Grid.RowDefinitions>
+        <Slider Grid.Column="0" Height="25" MinWidth="100" MaxWidth="500" Margin="148,12" Name="rotate_Slider"  />
+        <Slider Grid.Column="1" Height="25" MinWidth="100" MaxWidth="500" Margin="148,12" Name="scale_Slider"  />
+        <Canvas x:Name="CanvasMain" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Margin="10,10,10,0" Height="349" VerticalAlignment="Top"/>
+    </Grid>
+</Window>
