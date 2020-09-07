@@ -204,7 +204,7 @@ namespace WpfApp_DragNDrop_ImageOpen
         {
             // Матричное преобразование
             Matrix m = new Matrix();
-            m.RotateAt(45, currentPointElementClick.X, currentPointElementClick.Y);
+            m.RotateAt(Rotate, currentPointElementClick.X, currentPointElementClick.Y);
             MatrixTransform mt = new MatrixTransform(m);
             currentUIElement.RenderTransform = mt;
         }
@@ -213,7 +213,7 @@ namespace WpfApp_DragNDrop_ImageOpen
         {
             // Матричное преобразование
             Matrix m = new Matrix();
-            m.Scale(1.0, 1.0);
+            m.Scale(Scale, Scale);
             MatrixTransform mt = new MatrixTransform(m);
             currentUIElement.RenderTransform = mt;
         }
@@ -366,6 +366,22 @@ namespace WpfApp_DragNDrop_ImageOpen
                 // Add the Adorner to the closest (hierarchically speaking) AdornerLayer
                 AdornerLayer.GetAdornerLayer(child).Add(adorner);
             }
+        }
+
+        double Rotate;
+        double Scale;
+        private void RotateSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            ((Slider)sender).SelectionEnd = e.NewValue;
+            Rotate = e.NewValue;
+            textBlockRotate.Text = "Rotate " + Rotate.ToString("0##.#");  
+        }
+
+        private void ScaleSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            ((Slider)sender).SelectionEnd = e.NewValue;
+            Scale = e.NewValue;
+            textBlockScale.Text = "Scale " + Scale.ToString("0##.#");
         }
     }
 }

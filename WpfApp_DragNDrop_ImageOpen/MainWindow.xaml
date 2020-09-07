@@ -6,18 +6,23 @@
         xmlns:local="clr-namespace:WpfApp_DragNDrop_ImageOpen"
         mc:Ignorable="d"
         x:Name="mainWindow" Title="DragNDrop_ImageOpen" Height="450" Width="800"
-        AllowDrop="True" PreviewDragEnter="mainWindow_PreviewDragEnter" PreviewDrop="mainWindow_PreviewDrop">
-    <Grid  >
+        AllowDrop="True" PreviewDragEnter="mainWindow_PreviewDragEnter" PreviewDrop="mainWindow_PreviewDrop" >
+    <Grid >
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="*" MaxWidth="200"></ColumnDefinition>
+            <ColumnDefinition Width="*" MaxWidth="200"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="369" />
+            <RowDefinition />
         </Grid.RowDefinitions>
-        <Slider Grid.Column="0" Height="25" MinWidth="100" MaxWidth="500" Margin="148,12" Name="rotate_Slider"  />
-        <Slider Grid.Column="1" Height="25" MinWidth="100" MaxWidth="500" Margin="148,12" Name="scale_Slider"  />
-        <Canvas x:Name="CanvasMain" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Margin="10,10,10,0" Height="349" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlockRotate" Grid.Column="0" HorizontalAlignment="Center">Rotate</TextBlock>
+        <TextBlock x:Name="textBlockScale" Grid.Column="1" HorizontalAlignment="Center">Scale</TextBlock>
+        <Slider Value="180" Minimum="0" Maximum="360" SelectionStart="0" IsSelectionRangeEnabled="True" ValueChanged="RotateSlider_ValueChanged" Grid.Column="0" Height="25" MinWidth="100" MaxWidth="500" Margin="15,10" Name="rotate_Slider" />
+        <Slider Value="1" Minimum="0.1" Maximum="10" SelectionStart="0.1" IsSelectionRangeEnabled="True" ValueChanged="ScaleSlider_ValueChanged" Grid.Column="1" Height="25" MinWidth="100" MaxWidth="500" Margin="15,10" Name="scale_Slider" />
+            <Border x:Name="borderCanvasMain" BorderThickness="2" BorderBrush="BlueViolet" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" Margin="5,5,5,5">
+                <Canvas ClipToBounds="True"  x:Name="CanvasMain"  Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Border>
     </Grid>
 </Window>
