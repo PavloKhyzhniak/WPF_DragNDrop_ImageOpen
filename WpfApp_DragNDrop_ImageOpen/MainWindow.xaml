@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApp_DragNDrop_ImageOpen"
         mc:Ignorable="d"
         x:Name="mainWindow" Title="DragNDrop_ImageOpen" Height="450" Width="800"
-        AllowDrop="True" PreviewDragEnter="mainWindow_PreviewDragEnter" PreviewDrop="mainWindow_PreviewDrop" SizeChanged="mainWindow_SizeChanged" >
+        AllowDrop="True" PreviewDragEnter="mainWindow_PreviewDragEnter" PreviewDrop="mainWindow_PreviewDrop" SizeChanged="mainWindow_SizeChanged" Loaded="mainWindow_Loaded" >
     <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" MaxWidth="200"></ColumnDefinition>
