@@ -33,11 +33,13 @@ namespace WpfApp_DragNDrop_ImageOpen
             {
                 Source=bSource,
                 Width = bSource.Width,
-                Height = bSource.Height                
+                Height = bSource.Height
             };
-            image.PreviewMouseLeftButtonDown += Image_PreviewMouseLeftButtonDown;
-            image.PreviewMouseLeftButtonUp += Image_PreviewMouseLeftButtonUp;
-            image.PreviewMouseMove += Image_PreviewMouseMove;
+            image.MouseLeftButtonDown += StartDrag;
+
+//            image.PreviewMouseLeftButtonDown += Image_PreviewMouseLeftButtonDown;
+//            image.PreviewMouseLeftButtonUp += Image_PreviewMouseLeftButtonUp;
+//            image.PreviewMouseMove += Image_PreviewMouseMove;
 
             image.PreviewMouseDown += Image_PreviewMouseDown;
             image.PreviewMouseRightButtonDown += Image_PreviewMouseRightButtonDown;
@@ -63,6 +65,7 @@ namespace WpfApp_DragNDrop_ImageOpen
             return image;
         }
 
+        UIElement currentUIElement;
         Point currentPointElementClick;
         private void Image_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -75,55 +78,100 @@ namespace WpfApp_DragNDrop_ImageOpen
             }
         }
 
-        UIElement currentUIElement;
         private void Image_PreviewMouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
 //            if (sender is UIElement element)
 //                currentUIElement = element;
         }
 
-        private Point mouseOffset;
-        private Point elementOffset;
-        private bool isMouseDown = false;
-
-        bool flag_LeftButtonDown = false;
-
-        private void Image_PreviewMouseMove(object sender, MouseEventArgs e)
-        {
-            if (sender is UIElement cur_element && !cur_element.Equals(currentUIElement) && isMouseDown)
-            {
-                if (cur_element == null)
-                    return;
-
-                int currentZindex = Canvas.GetZIndex(cur_element);
-                currentZindex--;
-                Canvas.SetZIndex(cur_element, currentZindex);
- 
-                return;
-            }
-            double xOffset = 0;
-            double yOffset = 0;
-
-            flag_LeftButtonDown = false;
-            if (e.LeftButton == MouseButtonState.Pressed && isMouseDown)
-                if (sender is UIElement element)
-                {
-                    // получить координаты мыши в listBox
-                    System.Windows.Point mousePos = e.GetPosition(element);
-
-                    mousePos.Offset(mouseOffset.X, mouseOffset.Y);
-
-                    Canvas.SetLeft(element, elementOffset.X + mousePos.X);
-                    Canvas.SetTop(element, elementOffset.Y + mousePos.Y);
-
-                    xOffset = Canvas.GetLeft(element);
-                    yOffset = Canvas.GetTop(element);
-
-                    elementOffset = new Point(xOffset, yOffset);
-
-                    CheckForOverlap(CanvasMain);
-                }
-        }
+//        private Point mouseOffset;
+//        private Point elementOffset;
+//        private bool isMouseDown = false;
+//
+//        bool flag_LeftButtonDown = false;
+//
+//        private void Image_PreviewMouseMove(object sender, MouseEventArgs e)
+//        {
+//            if (sender is UIElement cur_element && !cur_element.Equals(currentUIElement) && isMouseDown)
+//            {
+//                if (cur_element == null)
+//                    return;
+//
+//                int currentZindex = Canvas.GetZIndex(cur_element);
+//                currentZindex--;
+//                Canvas.SetZIndex(cur_element, currentZindex);
+// 
+//                return;
+//            }
+//            double xOffset = 0;
+//            double yOffset = 0;
+//
+//            flag_LeftButtonDown = false;
+//            if (e.LeftButton == MouseButtonState.Pressed && isMouseDown)
+//                if (sender is UIElement element)
+//                {
+//                    // получить координаты мыши в listBox
+//                    System.Windows.Point mousePos = e.GetPosition(element);
+//
+//                    mousePos.Offset(mouseOffset.X, mouseOffset.Y);
+//
+//                    Canvas.SetLeft(element, elementOffset.X + mousePos.X);
+//                    Canvas.SetTop(element, elementOffset.Y + mousePos.Y);
+//
+//                    xOffset = Canvas.GetLeft(element);
+//                    yOffset = Canvas.GetTop(element);
+//
+//                    elementOffset = new Point(xOffset, yOffset);
+//
+//                    CheckForOverlap(CanvasMain);
+//                }
+//        }
+//
+//        private void Image_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+//        {
+//            double xOffset = 0;
+//            double yOffset = 0;
+//
+//            if (e.LeftButton == MouseButtonState.Pressed && !isMouseDown)
+//                if (sender is UIElement element)
+//                {
+//                    // получить координаты мыши в listBox
+//                    System.Windows.Point pt = e.GetPosition(element);
+//
+//                    xOffset = -pt.X;// - SystemInformation.FrameBorderSize.Width;
+//                    yOffset = -pt.Y;// - SystemInformation.CaptionHeight - SystemInformation.FrameBorderSize.Height;
+//                    mouseOffset = new Point(xOffset, yOffset);
+//
+//                    xOffset = Canvas.GetLeft(element);
+//                    yOffset = Canvas.GetTop(element);
+//
+//                    //Canvas.SetZIndex(element, maxZindex);
+//
+//                    elementOffset = new Point(xOffset, yOffset);
+//
+//                    isMouseDown = true;
+//                    flag_LeftButtonDown = true;
+//                }
+//        }
+//
+//        private void Image_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+//        {
+//            if (Keyboard.IsKeyDown(Key.LeftCtrl) && e.LeftButton == MouseButtonState.Released && flag_LeftButtonDown)
+//                if (sender is UIElement element)
+//                {
+//                    int currentZindex = Canvas.GetZIndex(element);
+//                    //                    if (currentZindex > 0)
+//                    currentZindex--;
+//                    //                    else
+//                    //                        currentZindex = maxZindex;
+//                    Canvas.SetZIndex(element, currentZindex);
+//                }
+//
+//            if (e.LeftButton == MouseButtonState.Released)
+//                isMouseDown = false;
+//
+//            flag_LeftButtonDown = false;
+//        }
 
         private bool CheckForOverlap(Panel panel)
         {
@@ -154,57 +202,24 @@ namespace WpfApp_DragNDrop_ImageOpen
             return new Rect(new Point(Canvas.GetLeft(element), Canvas.GetTop(element)), new Size(element.ActualWidth, element.ActualHeight));
         }
 
-        private void Image_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            double xOffset = 0;
-            double yOffset = 0;
 
-            if (e.LeftButton == MouseButtonState.Pressed && !isMouseDown)
-                if (sender is UIElement element)
-                {
-                    // получить координаты мыши в listBox
-                    System.Windows.Point pt = e.GetPosition(element);
-
-                    xOffset = -pt.X;// - SystemInformation.FrameBorderSize.Width;
-                    yOffset = -pt.Y;// - SystemInformation.CaptionHeight - SystemInformation.FrameBorderSize.Height;
-                    mouseOffset = new Point(xOffset, yOffset);
-
-                    xOffset = Canvas.GetLeft(element);
-                    yOffset = Canvas.GetTop(element);
-
-                    //Canvas.SetZIndex(element, maxZindex);
-
-                    elementOffset = new Point(xOffset, yOffset);
-
-                    isMouseDown = true;
-                    flag_LeftButtonDown = true;
-                }
-        }
-
-        private void Image_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            if (Keyboard.IsKeyDown(Key.LeftCtrl) && e.LeftButton == MouseButtonState.Released && flag_LeftButtonDown)
-                if (sender is UIElement element)
-                {
-                    int currentZindex = Canvas.GetZIndex(element);
-//                    if (currentZindex > 0)
-                        currentZindex--;
-//                    else
-//                        currentZindex = maxZindex;
-                    Canvas.SetZIndex(element, currentZindex);
-                }
-
-            if(e.LeftButton == MouseButtonState.Released)
-                isMouseDown = false;
-
-            flag_LeftButtonDown = false;
-        }
 
         private void Rotate_Click(object sender, RoutedEventArgs e)
         {
+            double x = 0;
+            double y = 0;
+            if (currentUIElement is Image image)
+            {
+//                x = Canvas.GetLeft(currentUIElement) + image.ActualWidth / 2;
+//                y = Canvas.GetTop(currentUIElement) + image.ActualHeight / 2;
+                x = image.ActualWidth / 2;
+                y = image.ActualHeight / 2;
+            }
+
             // Матричное преобразование
-            Matrix m = new Matrix();
-            m.RotateAt(Rotate, currentPointElementClick.X, currentPointElementClick.Y);
+            Matrix m = currentUIElement.RenderTransform.Value;// new Matrix();
+//            m.RotateAt(Rotate, currentPointElementClick.X, currentPointElementClick.Y);
+            m.RotateAt(Rotate, x, y);
             MatrixTransform mt = new MatrixTransform(m);
             currentUIElement.RenderTransform = mt;
         }
@@ -212,9 +227,10 @@ namespace WpfApp_DragNDrop_ImageOpen
         private void Resize_Click(object sender, RoutedEventArgs e)
         {
             // Матричное преобразование
-            Matrix m = new Matrix();
+            Matrix m = currentUIElement.RenderTransform.Value;// new Matrix();
             m.Scale(Scale, Scale);
             MatrixTransform mt = new MatrixTransform(m);
+            
             currentUIElement.RenderTransform = mt;
         }
 
@@ -383,5 +399,59 @@ namespace WpfApp_DragNDrop_ImageOpen
             Scale = e.NewValue;
             textBlockScale.Text = "Scale " + Scale.ToString("0##.#");
         }
+
+        private void mainWindow_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            CanvasMain.Width = borderCanvasMain.ActualWidth - borderCanvasMain.Margin.Left - borderCanvasMain.Margin.Right;
+            CanvasMain.Height = borderCanvasMain.ActualHeight - borderCanvasMain.Margin.Top - borderCanvasMain.Margin.Bottom;
+        }
+
+      
+
+        Vector relativeMousePos;
+        FrameworkElement draggedObject;
+        
+        void OnMouseUp(object sender, MouseButtonEventArgs e)
+        {
+            FinishDrag(sender, e);
+            Mouse.Capture(null);        
+        }
+        
+        void StartDrag(object sender, MouseButtonEventArgs e)
+        {
+            draggedObject = (FrameworkElement)sender;
+            relativeMousePos = e.GetPosition(draggedObject) - new Point();
+            draggedObject.MouseMove += OnDragMove;
+            draggedObject.LostMouseCapture += OnLostCapture;
+            draggedObject.MouseUp += OnMouseUp;
+            Mouse.Capture(draggedObject);
+        }
+
+        void OnDragMove(object sender, MouseEventArgs e)
+        {
+            UpdatePosition(e);
+        }
+
+        void UpdatePosition(MouseEventArgs e)
+        {
+            var point = e.GetPosition(CanvasMain);
+            var newPos = point - relativeMousePos;
+            Canvas.SetLeft(draggedObject, newPos.X);
+            Canvas.SetTop(draggedObject, newPos.Y);
+        }
+
+        void OnLostCapture(object sender, MouseEventArgs e)
+        {
+            FinishDrag(sender, e);
+        }
+
+        void FinishDrag(object sender, MouseEventArgs e)
+        {
+            draggedObject.MouseMove -= OnDragMove;
+            draggedObject.LostMouseCapture -= OnLostCapture;
+            draggedObject.MouseUp -= OnMouseUp;
+            UpdatePosition(e);
+        }
+
     }
 }

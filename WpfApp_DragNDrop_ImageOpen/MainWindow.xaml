@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApp_DragNDrop_ImageOpen"
         mc:Ignorable="d"
         x:Name="mainWindow" Title="DragNDrop_ImageOpen" Height="450" Width="800"
-        AllowDrop="True" PreviewDragEnter="mainWindow_PreviewDragEnter" PreviewDrop="mainWindow_PreviewDrop" >
+        AllowDrop="True" PreviewDragEnter="mainWindow_PreviewDragEnter" PreviewDrop="mainWindow_PreviewDrop" SizeChanged="mainWindow_SizeChanged" >
     <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" MaxWidth="200"></ColumnDefinition>
@@ -21,8 +21,8 @@
         <TextBlock x:Name="textBlockScale" Grid.Column="1" HorizontalAlignment="Center">Scale</TextBlock>
         <Slider Value="180" Minimum="0" Maximum="360" SelectionStart="0" IsSelectionRangeEnabled="True" ValueChanged="RotateSlider_ValueChanged" Grid.Column="0" Height="25" MinWidth="100" MaxWidth="500" Margin="15,10" Name="rotate_Slider" />
         <Slider Value="1" Minimum="0.1" Maximum="10" SelectionStart="0.1" IsSelectionRangeEnabled="True" ValueChanged="ScaleSlider_ValueChanged" Grid.Column="1" Height="25" MinWidth="100" MaxWidth="500" Margin="15,10" Name="scale_Slider" />
-            <Border x:Name="borderCanvasMain" BorderThickness="2" BorderBrush="BlueViolet" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" Margin="5,5,5,5">
-                <Canvas ClipToBounds="True"  x:Name="CanvasMain"  Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center" />
-            </Border>
+        <Border x:Name="borderCanvasMain" BorderThickness="2" BorderBrush="BlueViolet" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" Margin="5,5,5,5">
+            <Canvas ClipToBounds="True"  x:Name="CanvasMain"  Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </Border>
     </Grid>
 </Window>
