@@ -37,8 +37,8 @@ namespace WpfApp_DragNDrop_ImageOpen
             };
             image.MouseLeftButtonDown += StartDrag;
 
-//            image.PreviewMouseLeftButtonDown += Image_PreviewMouseLeftButtonDown;
-//            image.PreviewMouseLeftButtonUp += Image_PreviewMouseLeftButtonUp;
+            image.PreviewMouseLeftButtonDown += Image_PreviewMouseLeftButtonDown;
+            image.PreviewMouseLeftButtonUp += Image_PreviewMouseLeftButtonUp;
 //            image.PreviewMouseMove += Image_PreviewMouseMove;
 
             image.PreviewMouseDown += Image_PreviewMouseDown;
@@ -82,6 +82,29 @@ namespace WpfApp_DragNDrop_ImageOpen
         {
 //            if (sender is UIElement element)
 //                currentUIElement = element;
+        }
+
+        bool flag_LeftButtonDown = false;
+
+        private void Image_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+                if (sender is UIElement element)
+                    flag_LeftButtonDown = true;
+        }
+        
+        private void Image_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (Keyboard.IsKeyDown(Key.LeftCtrl) && e.LeftButton == MouseButtonState.Released && flag_LeftButtonDown)
+                if (sender is UIElement element)
+                {
+                    int currentZindex = Canvas.GetZIndex(element);
+                    currentZindex--;
+
+                    Canvas.SetZIndex(element, currentZindex);
+                }
+        
+            flag_LeftButtonDown = false;
         }
 
 //        private Point mouseOffset;
@@ -438,6 +461,9 @@ namespace WpfApp_DragNDrop_ImageOpen
             var newPos = point - relativeMousePos;
             Canvas.SetLeft(draggedObject, newPos.X);
             Canvas.SetTop(draggedObject, newPos.Y);
+
+            if(flag_LeftButtonDown)
+                CheckForOverlap(CanvasMain);
         }
 
         void OnLostCapture(object sender, MouseEventArgs e)
