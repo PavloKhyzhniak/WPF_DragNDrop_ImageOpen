@@ -5,8 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp_DragNDrop_ShowImagesOnGrid"
         mc:Ignorable="d"
+        AllowDrop="True"
         Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
-    <Grid x:Name="MainGrid" ShowGridLines="True">
-        
-    </Grid>
+    <Grid x:Name="MainGrid" />
 </Window>
