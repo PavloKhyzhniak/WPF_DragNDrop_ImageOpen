@@ -8,7 +8,20 @@
         AllowDrop="True"
         Background="Transparent"
         Title="DragNDrop Show Images on Grid" Loaded="Window_Loaded" AllowsTransparency="True" WindowStyle="None" SizeToContent="WidthAndHeight">
-    <Grid x:Name="MainGrid" Background="Transparent">
-        
-    </Grid> 
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Rectangle Fill="Brown" 
+                   HorizontalAlignment="Right" VerticalAlignment="Center" Height="30" Width="100"
+                   MouseLeftButtonDown="Rectangle_MouseLeftButtonDown"></Rectangle>
+        <WrapPanel HorizontalAlignment="Right" VerticalAlignment="Top" Height="30" Width="Auto">
+            <Button Width="20" Height="20" Margin="5" Click="Button_Click_Hide">_</Button>
+            <Button Width="20" Height="20" Margin="5" Click="Button_Click_Minimized">口</Button>
+            <Button Width="20" Height="20" Margin="5" Click="Button_Click_Close">X</Button>
+        </WrapPanel>
+        <Grid x:Name="MainGrid" Background="Transparent" Grid.Row="1">
+        </Grid>
+    </Grid>
 </Window>
