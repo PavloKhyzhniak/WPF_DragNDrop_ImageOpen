@@ -55,7 +55,7 @@ namespace WpfApp_DragNDrop_ShowImagesOnGrid
             MainGrid.ContextMenu.Items.Add(new Separator());
 
             contextItem = new MenuItem();
-            contextItem.Header = "Close";
+            contextItem.Header = "Close Application";
             contextItem.Click += Windows_Close_Click;
             MainGrid.ContextMenu.Items.Add(contextItem);
 
@@ -75,8 +75,15 @@ namespace WpfApp_DragNDrop_ShowImagesOnGrid
             MainMenu.Items.Add(new Separator());
             
             contextItem = new MenuItem();
-            contextItem.Header = "Close";
+            contextItem.Header = "Close Image";
             contextItem.Click += Close_Click;
+            MainMenu.Items.Add(contextItem);
+
+            MainMenu.Items.Add(new Separator());
+
+            contextItem = new MenuItem();
+            contextItem.Header = "Close Application";
+            contextItem.Click += Windows_Close_Click;
             MainMenu.Items.Add(contextItem);
 
             PrepareMainGrid();
