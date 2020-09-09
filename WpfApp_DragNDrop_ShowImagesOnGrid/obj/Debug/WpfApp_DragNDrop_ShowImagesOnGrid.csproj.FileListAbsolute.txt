@@ -13,3 +13,5 @@ C:\Work_Step2019\08_VisualC#_WPF\AppWPF_C#_ch03_03\WpfApp_DragNDrop_ImageOpen\Wp
 C:\Work_Step2019\08_VisualC#_WPF\AppWPF_C#_ch03_03\WpfApp_DragNDrop_ImageOpen\WpfApp_DragNDrop_ShowImagesOnGrid\obj\Debug\WpfApp_DragNDrop_ShowImagesOnGrid.csproj.CoreCompileInputs.cache
 C:\Work_Step2019\08_VisualC#_WPF\AppWPF_C#_ch03_03\WpfApp_DragNDrop_ImageOpen\WpfApp_DragNDrop_ShowImagesOnGrid\obj\Debug\WpfApp_DragNDrop_ShowImagesOnGrid.exe
 C:\Work_Step2019\08_VisualC#_WPF\AppWPF_C#_ch03_03\WpfApp_DragNDrop_ImageOpen\WpfApp_DragNDrop_ShowImagesOnGrid\obj\Debug\WpfApp_DragNDrop_ShowImagesOnGrid.pdb
+C:\Work_Step2019\08_VisualC#_WPF\AppWPF_C#_ch03_03\WpfApp_DragNDrop_ImageOpen\WpfApp_DragNDrop_ShowImagesOnGrid\obj\Debug\SetSizeWindows.g.cs
+C:\Work_Step2019\08_VisualC#_WPF\AppWPF_C#_ch03_03\WpfApp_DragNDrop_ImageOpen\WpfApp_DragNDrop_ShowImagesOnGrid\obj\Debug\SetSizeWindows.baml

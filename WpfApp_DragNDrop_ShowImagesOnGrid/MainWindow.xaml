@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:WpfApp_DragNDrop_ShowImagesOnGrid"
         mc:Ignorable="d"
         AllowDrop="True"
-        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
-    <Grid x:Name="MainGrid" />
+        Background="Transparent"
+        Title="DragNDrop Show Images on Grid" Loaded="Window_Loaded" AllowsTransparency="True" WindowStyle="None" SizeToContent="WidthAndHeight">
+    <Grid x:Name="MainGrid" Background="Transparent">
+        
+    </Grid> 
 </Window>
